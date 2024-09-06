@@ -1,6 +1,4 @@
-import React from "react";
-import { Grid, Stack } from "@mantine/core";
-import ContextTextInput from "../components/inputs/ContextTextInput";
+import { Stack } from "@mantine/core";
 import ContextSelectInput from "../components/inputs/ContextSelectInput";
 import ContextCheckboxInput from "../components/inputs/ContextCheckboxInput";
 import ContextRadioInput from "../components/inputs/ContextRadioInput";

@@ -1,4 +1,3 @@
-import React from "react";
 import { COMPANY_WORKING_FIELDS_OPTIONS_LIST } from "../../helper/constants";
 import { Checkbox, Group } from "@mantine/core";
 import { Controller, useFormContext } from "react-hook-form";

@@ -1,5 +1,3 @@
-import React from "react";
-import { COMPANY_WFH_POLICY_RADIO_OPTION_LIST } from "../../helper/constants";
 import { Radio, Group } from "@mantine/core";
 import { Controller, useFormContext } from "react-hook-form";
 

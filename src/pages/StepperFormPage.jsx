@@ -1,4 +1,3 @@
-import React from "react";
 import { Button, Card, Container, Group, Paper } from "@mantine/core";
 import StepperComponent from "../components/stepper/StepperComponent";
 import { useDispatch } from "react-redux";
@@ -9,7 +8,6 @@ import {
   SET_FORM_DATA,
   SET_NEXT_STEP,
   SET_PREV_STEP,
-  SUBMISSION_FORM_DATA,
 } from "../redux/features/stepperFormsSlice";
 import { FormProvider, useForm } from "react-hook-form";
 import { FormsValidationSchema } from "../forms/formsValidationSchema";
