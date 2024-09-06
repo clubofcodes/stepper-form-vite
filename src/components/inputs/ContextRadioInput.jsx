@@ -3,7 +3,7 @@ import { COMPANY_WFH_POLICY_RADIO_OPTION_LIST } from "../../helper/constants";
 import { Radio, Group } from "@mantine/core";
 import { Controller, useFormContext } from "react-hook-form";
 
-const ContextRadioInput = ({ name, label, props }) => {
+const ContextRadioInput = ({ name, label, options, props }) => {
   const {
     control,
     formState: { errors },
@@ -22,10 +22,11 @@ const ContextRadioInput = ({ name, label, props }) => {
             withAsterisk
             error={errors?.[name] ? errors?.[name].message : null}
             onChange={field.onChange}
+            {...field}
             {...props}
           >
             <Group mt="xs">
-              {COMPANY_WFH_POLICY_RADIO_OPTION_LIST.map((RadioItem, index) => (
+              {options.map((RadioItem, index) => (
                 <Radio
                   key={`${RadioItem.value}_${index}`}
                   label={RadioItem.label}

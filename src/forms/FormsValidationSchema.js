@@ -1,9 +1,4 @@
 import * as yup from "yup";
-import {
-  COMPANY_WFH_POLICY_RADIO_OPTION_LIST,
-  EMPLOYEES_RANGE_OPTIONS_LIST,
-  STATE_OPTIONS_LIST,
-} from "../helper/constants";
 
 export const FormsValidationSchema = [
   yup.object().shape({
@@ -24,10 +19,7 @@ export const FormsValidationSchema = [
       ),
     companyName: yup.string().required("*Company name is required"),
     companySite: yup.string().required("*Company website is required").url(),
-    state: yup
-      .string()
-      .required("*You must select at least one state")
-      .oneOf(STATE_OPTIONS_LIST, "Invalid state selected"),
+    state: yup.string().required("*You must select at least one state"),
     zipCode: yup.string().required("*Zip code is required"),
   }),
   yup.object().shape({
@@ -36,9 +28,22 @@ export const FormsValidationSchema = [
       .min(1, "*You must select at least one field"),
     companyEmployeesRange: yup
       .string()
-      .required("*You must select at least one range")
-      .oneOf(EMPLOYEES_RANGE_OPTIONS_LIST, "Invalid state selected"),
+      .required("*You must select at least one range"),
     companyWFHPolicy: yup.string().required("*Select one of the option."),
-    // .oneOf(COMPANY_WFH_POLICY_RADIO_OPTION_LIST, "Please select yes or no"),
+  }),
+  yup.object().shape({
+    startPlanDate: yup
+      .date()
+      .required("*Start Plan Date is required")
+      .nullable(),
+    planType: yup.string().required("*Please select a plan type"),
+    planCategory: yup.string().required("*Please select a plan category"),
+    noOfUsers: yup
+      .number()
+      .typeError("Must be a number")
+      .required("*Number of users is required")
+      .min(1, "Must have at least 1 user")
+      .integer("Must be a whole number")
+      .positive(),
   }),
 ];

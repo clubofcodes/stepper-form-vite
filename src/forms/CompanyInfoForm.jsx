@@ -4,7 +4,10 @@ import ContextTextInput from "../components/inputs/ContextTextInput";
 import ContextSelectInput from "../components/inputs/ContextSelectInput";
 import ContextCheckboxInput from "../components/inputs/ContextCheckboxInput";
 import ContextRadioInput from "../components/inputs/ContextRadioInput";
-import { EMPLOYEES_RANGE_OPTIONS_LIST } from "../helper/constants";
+import {
+  COMPANY_WFH_POLICY_RADIO_OPTION_LIST,
+  EMPLOYEES_RANGE_OPTIONS_LIST,
+} from "../helper/constants";
 
 const CompanyInfoForm = () => {
   return (
@@ -21,6 +24,7 @@ const CompanyInfoForm = () => {
       <ContextRadioInput
         name="companyWFHPolicy"
         label="Does the company have a WFH policy?"
+        options={COMPANY_WFH_POLICY_RADIO_OPTION_LIST}
       />
     </Stack>
   );

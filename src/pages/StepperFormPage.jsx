@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Container, Group, Paper } from "@mantine/core";
+import { Button, Card, Container, Group, Paper } from "@mantine/core";
 import StepperComponent from "../components/stepper/StepperComponent";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
@@ -9,10 +9,12 @@ import {
   SET_FORM_DATA,
   SET_NEXT_STEP,
   SET_PREV_STEP,
+  SUBMISSION_FORM_DATA,
 } from "../redux/features/stepperFormsSlice";
 import { FormProvider, useForm } from "react-hook-form";
 import { FormsValidationSchema } from "../forms/formsValidationSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { TOTAL_NO_OF_STEPS } from "../helper/constants";
 
 const StepperFormPage = () => {
   const dispatch = useDispatch();
@@ -34,8 +36,6 @@ const StepperFormPage = () => {
     nextStep();
   };
 
-  console.log({ err: methods.formState.errors, activeStep, stepperFormsData });
-
   return (
     <Paper withBorder h={"100%"}>
       <Container p={"md"}>
@@ -43,18 +43,35 @@ const StepperFormPage = () => {
           <form onSubmit={methods.handleSubmit(onSubmit)}>
             <StepperComponent />
 
-            <Group justify="center" mt="xl">
-              <Button
-                variant="default"
-                onClick={prevStep}
-                disabled={activeStep === 0}
-              >
-                Back
-              </Button>
-              <Button type="submit">
-                {activeStep === 2 ? "Submit" : "Next"}
-              </Button>
-            </Group>
+            {activeStep < TOTAL_NO_OF_STEPS ? (
+              <Group justify="center" mt="xl">
+                <Button
+                  variant="default"
+                  onClick={prevStep}
+                  disabled={activeStep === 0}
+                >
+                  Back
+                </Button>
+                <Button type="submit">
+                  {activeStep === 2 ? "Submit" : "Next"}
+                </Button>
+              </Group>
+            ) : (
+              <Card withBorder shadow="sm" radius={"md"} m={"md"}>
+                <pre>
+                  <code>
+                    {JSON.stringify(
+                      {
+                        Message: "Your submission is recorded.",
+                        ...stepperFormsData,
+                      },
+                      null,
+                      2
+                    )}
+                  </code>
+                </pre>
+              </Card>
+            )}
           </form>
         </FormProvider>
       </Container>

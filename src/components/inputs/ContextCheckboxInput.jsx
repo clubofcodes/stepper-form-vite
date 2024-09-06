@@ -21,15 +21,17 @@ const ContextCheckboxInput = ({ name, label, props }) => {
             label={label}
             withAsterisk
             error={errors?.[name] ? errors?.[name].message : null}
+            {...field}
             {...props}
           >
             <Group mt="xs">
               {COMPANY_WORKING_FIELDS_OPTIONS_LIST.map(
                 (checkBoxItem, index) => (
                   <Checkbox
+                    key={`${checkBoxItem.value}_${index}`}
                     label={checkBoxItem.label}
                     value={checkBoxItem.value}
-                    checked={field.value.includes(checkBoxItem.value)}
+                    checked={field?.value?.includes(checkBoxItem.value)}
                     onChange={(e) => {
                       const val = e.currentTarget.checked
                         ? [...field.value, e.currentTarget.value]

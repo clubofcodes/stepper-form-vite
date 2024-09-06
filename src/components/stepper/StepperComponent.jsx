@@ -6,8 +6,21 @@ import {
   SET_ACTIVE_STEP,
 } from "../../redux/features/stepperFormsSlice";
 import { useSelector, useDispatch } from "react-redux";
-import stepperClasses from "./stepperComponent.module.css";
 import CompanyInfoForm from "../../forms/CompanyInfoForm";
+import PlanSelectionForm from "../../forms/PlanSelectionForm";
+
+const stepperCustomStyles = {
+  steps: {
+    padding: 16,
+    boxShadow: "6px 6px 2px lightblue",
+    border: "1px solid #8450fc",
+    borderRadius: "8px",
+    backdropFilter: "blur(12px)",
+  },
+  stepDescription: {
+    color: "blue",
+  },
+};
 
 const StepperComponent = () => {
   const dispatch = useDispatch();
@@ -25,7 +38,7 @@ const StepperComponent = () => {
     },
     {
       formTitle: "Plan Selection",
-      formContent: "Plan Select",
+      formContent: <PlanSelectionForm />,
     },
   ];
 
@@ -34,18 +47,7 @@ const StepperComponent = () => {
       active={activeStep}
       onStepClick={(val) => dispatch(SET_ACTIVE_STEP(val))}
       allowNextStepsSelect={false}
-      styles={{
-        steps: {
-          padding: 16,
-          boxShadow: "6px 6px 2px lightblue",
-          border: "1px solid #8450fc",
-          borderRadius: "8px",
-          backdropFilter: "blur(12px)",
-        },
-        stepDescription: {
-          color: "blue",
-        },
-      }}
+      styles={stepperCustomStyles}
     >
       {formsSteps.map((stepObj, index) => (
         <Stepper.Step

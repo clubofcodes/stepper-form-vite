@@ -1,7 +1,6 @@
 import React from "react";
 import { Select } from "@mantine/core";
 import { Controller, useFormContext } from "react-hook-form";
-import { STATE_OPTIONS_LIST } from "../../helper/constants";
 
 const ContextSelectInput = ({ name, label, options, props }) => {
   const {
@@ -16,11 +15,16 @@ const ContextSelectInput = ({ name, label, options, props }) => {
       defaultValue=""
       render={({ field }) => (
         <Select
+          tt={"capitalize"}
+          styles={{
+            input: { textTransform: "capitalize" },
+            options: { textTransform: "capitalize" },
+          }}
           label={label}
           placeholder={`Select a ${label}`}
           data={options}
           {...field}
-          error={errors.state ? errors.state.message : null}
+          error={errors?.[name] ? errors?.[name].message : null}
           withAsterisk
           {...props}
         />

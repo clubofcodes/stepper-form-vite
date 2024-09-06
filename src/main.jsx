@@ -1,5 +1,6 @@
 import "./index.css";
-import '@mantine/core/styles.css';
+import "@mantine/core/styles.css";
+import "@mantine/dates/styles.css";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import StepperFormPage from "./pages/StepperFormPage";

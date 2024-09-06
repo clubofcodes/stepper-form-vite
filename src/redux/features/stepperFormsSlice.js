@@ -26,7 +26,7 @@ export const stepperFormsSlice = createSlice({
       };
     },
     SUBMISSION_FORM_DATA: (state) => {
-      console.log("Final Submitted Data:", state.stepperFormsData);
+      console.log("Final Submitted Data:", { state }, state.stepperFormsData);
     },
   },
 });
