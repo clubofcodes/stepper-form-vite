@@ -19,6 +19,7 @@ const ContextTextInput = ({ name, label = "", props }) => {
           placeholder={`Enter your ${label}`}
           {...field}
           error={errors?.[name] ? errors?.[name].message : null}
+          withAsterisk
           {...props}
         />
       )}

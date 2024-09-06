@@ -1,0 +1,6 @@
+.separator {
+  background-image: blue;
+  &[data-mantine-color-scheme] {
+    background-color: red;
+  }
+}

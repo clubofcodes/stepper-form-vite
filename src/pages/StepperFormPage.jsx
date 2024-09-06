@@ -23,7 +23,7 @@ const StepperFormPage = () => {
     mode: "onBlur",
     reValidateMode: "onBlur",
     defaultValues: {},
-    resolver: yupResolver(FormsValidationSchema),
+    resolver: yupResolver(FormsValidationSchema[activeStep]),
   });
 
   const nextStep = () => dispatch(SET_NEXT_STEP());
@@ -34,7 +34,7 @@ const StepperFormPage = () => {
     nextStep();
   };
 
-  console.log({ activeStep, stepperFormsData });
+  console.log({ err: methods.formState.errors, activeStep, stepperFormsData });
 
   return (
     <Paper withBorder h={"100%"}>

@@ -5,8 +5,9 @@ import {
   GET_ACTIVE_STEP,
   SET_ACTIVE_STEP,
 } from "../../redux/features/stepperFormsSlice";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import stepperClasses from "./stepperComponent.module.css";
+import CompanyInfoForm from "../../forms/CompanyInfoForm";
 
 const StepperComponent = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ const StepperComponent = () => {
     },
     {
       formTitle: "Company Information",
-      formContent: "Company Info",
+      formContent: <CompanyInfoForm />,
     },
     {
       formTitle: "Plan Selection",

@@ -1,7 +1,12 @@
 import * as yup from "yup";
+import {
+  COMPANY_WFH_POLICY_RADIO_OPTION_LIST,
+  EMPLOYEES_RANGE_OPTIONS_LIST,
+  STATE_OPTIONS_LIST,
+} from "../helper/constants";
 
-export const FormsValidationSchema = yup
-  .object({
+export const FormsValidationSchema = [
+  yup.object().shape({
     firstName: yup
       .string()
       .required("*First name is required")
@@ -19,7 +24,21 @@ export const FormsValidationSchema = yup
       ),
     companyName: yup.string().required("*Company name is required"),
     companySite: yup.string().required("*Company website is required").url(),
-    state: yup.string().required("*Must select a state"),
-    zipCode: yup.string().required("*First name is required"),
-  })
-  .required();
+    state: yup
+      .string()
+      .required("*You must select at least one state")
+      .oneOf(STATE_OPTIONS_LIST, "Invalid state selected"),
+    zipCode: yup.string().required("*Zip code is required"),
+  }),
+  yup.object().shape({
+    companyWorkingFields: yup
+      .array()
+      .min(1, "*You must select at least one field"),
+    companyEmployeesRange: yup
+      .string()
+      .required("*You must select at least one range")
+      .oneOf(EMPLOYEES_RANGE_OPTIONS_LIST, "Invalid state selected"),
+    companyWFHPolicy: yup.string().required("*Select one of the option."),
+    // .oneOf(COMPANY_WFH_POLICY_RADIO_OPTION_LIST, "Please select yes or no"),
+  }),
+];
