@@ -10,7 +10,7 @@ import {
   SET_PREV_STEP,
 } from "../redux/features/stepperFormsSlice";
 import { FormProvider, useForm } from "react-hook-form";
-import { FormsValidationSchema } from "../forms/formsValidationSchema";
+import { FormsValidationSchema } from "../forms/FormsValidationSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { TOTAL_NO_OF_STEPS } from "../helper/constants";
 
