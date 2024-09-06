@@ -1,5 +1,4 @@
-import React from "react";
-import { Button, Grid, Stack, Text } from "@mantine/core";
+import { Button, Stack, Text } from "@mantine/core";
 import ContextSelectInput from "../components/inputs/ContextSelectInput";
 import {
   PLAN_CATEGORY_OPTIONS_LIST,

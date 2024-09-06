@@ -4,7 +4,7 @@ import "@mantine/dates/styles.css";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import StepperFormPage from "./pages/StepperFormPage";
-import { Container, MantineProvider } from "@mantine/core";
+import { MantineProvider } from "@mantine/core";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 

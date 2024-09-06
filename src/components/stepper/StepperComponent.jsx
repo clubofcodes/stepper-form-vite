@@ -1,4 +1,3 @@
-import React from "react";
 import { Card, Stepper } from "@mantine/core";
 import PersonalInfoForm from "../../forms/PersonalInfoForm";
 import {

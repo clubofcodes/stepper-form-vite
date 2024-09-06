@@ -1,5 +1,4 @@
-import React from "react";
-import { Grid, Stack } from "@mantine/core";
+import { Stack } from "@mantine/core";
 import ContextTextInput from "../components/inputs/ContextTextInput";
 import ContextSelectInput from "../components/inputs/ContextSelectInput";
 import { STATE_OPTIONS_LIST } from "../helper/constants";
