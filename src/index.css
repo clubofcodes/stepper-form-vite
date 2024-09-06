@@ -1,0 +1,11 @@
+:root {
+  --theme-background-color: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+}
+
+body,
+#root {
+  /* background-color: #310e68; */
+  /* background-image: var(--theme-background-color); */
+  /* background-size: cover; */
+  height: 100vh;
+}

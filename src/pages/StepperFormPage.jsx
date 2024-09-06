@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Container, Group } from "@mantine/core";
+import { Button, Container, Group, Paper } from "@mantine/core";
 import StepperComponent from "../components/stepper/StepperComponent";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
@@ -37,26 +37,28 @@ const StepperFormPage = () => {
   console.log({ activeStep, stepperFormsData });
 
   return (
-    <Container p={"lg"}>
-      <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit(onSubmit)}>
-          <StepperComponent />
+    <Paper withBorder h={"100%"}>
+      <Container p={"md"}>
+        <FormProvider {...methods}>
+          <form onSubmit={methods.handleSubmit(onSubmit)}>
+            <StepperComponent />
 
-          <Group justify="center" mt="xl">
-            <Button
-              variant="default"
-              onClick={prevStep}
-              disabled={activeStep === 0}
-            >
-              Back
-            </Button>
-            <Button type="submit">
-              {activeStep === 2 ? "Submit" : "Next"}
-            </Button>
-          </Group>
-        </form>
-      </FormProvider>
-    </Container>
+            <Group justify="center" mt="xl">
+              <Button
+                variant="default"
+                onClick={prevStep}
+                disabled={activeStep === 0}
+              >
+                Back
+              </Button>
+              <Button type="submit">
+                {activeStep === 2 ? "Submit" : "Next"}
+              </Button>
+            </Group>
+          </form>
+        </FormProvider>
+      </Container>
+    </Paper>
   );
 };
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Stepper } from "@mantine/core";
+import { Card, Stepper } from "@mantine/core";
 import PersonalInfoForm from "../../forms/PersonalInfoForm";
 import {
   GET_ACTIVE_STEP,
@@ -33,6 +33,18 @@ const StepperComponent = () => {
       active={activeStep}
       onStepClick={(val) => dispatch(SET_ACTIVE_STEP(val))}
       allowNextStepsSelect={false}
+      styles={{
+        steps: {
+          padding: 16,
+          boxShadow: "6px 6px 2px lightblue",
+          border: "1px solid #8450fc",
+          borderRadius: "8px",
+          backdropFilter: "blur(12px)",
+        },
+        stepDescription: {
+          color: "blue",
+        },
+      }}
     >
       {formsSteps.map((stepObj, index) => (
         <Stepper.Step
@@ -40,7 +52,9 @@ const StepperComponent = () => {
           label={`Step ${index + 1}`}
           description={stepObj.formTitle}
         >
-          {stepObj.formContent}
+          <Card withBorder shadow="md" radius={"md"} padding={"lg"}>
+            {stepObj.formContent}
+          </Card>
         </Stepper.Step>
       ))}
     </Stepper>
